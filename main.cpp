@@ -261,19 +261,53 @@ int main(int argc, char* argv[])
     phoneBook["411"] = "Directory";
     phoneBook["911"] = "Emergency";
     phoneBook["508-678-2811"] = "BCC";
-    
 
-    //Write comments that help one better understand what the code is doing.
+    if (phoneBook.find("411") != phoneBook.end())
+    {
+      phoneBook.insert(
+        make_pair(string("411"), string("Directory"))
+      );
+    }
+    assert(phoneBook.size() == 3);
+    map<string, string>::const_iterator it3;
+
+    cout << endl << endl << "Displaying elements of the map phoneBook using iterator it3:" << endl;
+
+    for (it3 = phoneBook.begin(); it3 != phoneBook.end(); it3++)
+    {
+      cout
+        << " " << it3->first
+        << " " << it3->second
+        << endl;
+    }
+
+    /*
+      The code above declared a map named phoneBook and inserted 3 elements (each a pair) into it. The elements of the map was then displayed using the iterator it3.
+    */
 
     /****Section_Name**** Sort_Algorithm*/
-    //Write the code as presented in: 23. sort example
+    int arr2[100];
+    sort (arr2, arr2 + 100);
+    vector<int> v1;
+    sort (v1.begin(), v1.end());
 
-    //Write comments that help one better understand what the code is doing.
+    /*
+      The code above declared an array of 100 elements and the sort algorithm was used on the array. Additionally, vector v1 was also declared and was passed through the sort algorithm.
+    */
 
     /****Section_Name****Predicate_Algorithm*/
-    //Write the code as presented in: 25. count_if and predicate function
+    bool less_than_7 (int value);
+    {
+      int value;
+      return value < 7;
+    }
 
-    //Write comments that help one better understand what the code is doing. 
+    vector<int> v2;
+    int count_less = std::count_if(v2.begin(), v2.end(), less_than_7);
 
+    /*
+      A predicate is a function returning a bool. An object which overloads operator() to return a bool is also considered a predicate.
+      The code above used the predicate function to determine if an interger value returned in the boolian function less_than_7 is indeed less than 7.
+    */
       return 0; 
  }
